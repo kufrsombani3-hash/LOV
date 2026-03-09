@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>غرف LovingHomes للكلاب</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fef9f5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+header {
+    background: linear-gradient(90deg, #ff9c3b, #ff6f3b);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+header h1 { margin: 0; font-size: 2.5em; }
+header p { margin-top: 10px; font-size: 1.2em; }
+.rooms {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+}
+.room {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 300px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+.room:hover { transform: translateY(-10px); }
+.room img { width: 100%; height: 180px; object-fit: cover; }
+.room h2 { color: #ff6f3b; margin: 20px 0 10px; }
+.price { font-size: 24px; font-weight: bold; color: #ff9c3b; margin-bottom: 15px; }
+.room ul { list-style: none; padding: 0 20px 20px 20px; text-align: right; }
+.room ul li { padding: 8px 0; position: relative; }
+.room ul li::before {
+    content: "✔";
+    color: #ff6f3b;
+    margin-left: 10px;
+}
+button {
+    background-color: #ff6f3b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+button:hover { background-color: #ff9c3b; }
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 30px;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center; align-items: center;
+}
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 400px;
+    text-align: center;
+}
+.modal-content h3 { margin-top: 0; color: #ff6f3b; }
+.modal-content button { margin-top: 20px; }
+@media (max-width: 960px) {
+    .rooms { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>غرف LovingHomes للكلاب </h1>
+<p>اختر الغرفة المناسبة لكلبك مع خدمات فاخرة وراحة مثالية</p>
+</header>
+
+<section class="rooms">
+
+<div class="room">
+<img src="https://th.bing.com/th/id/R.6df1386d06f393a2b1fb05bb9f5b87a2?rik=t5wZO472zmmUUA&riu=http%3a%2f%2fwww.ketawahotel.com%2fimages%2f765.jpg&ehk=o5nZ5TrZDw0%2fKz5UM%2fvTVsvNckiXTN58CoQYnYg%2fCk0%3d&risl=&pid=ImgRaw&r=0">
+<h2>غرفة قياسية</h2>
+<div class="price">50$ / يوم</div>
+<ul>
+<li>سرير مريح للكلب</li>
+<li>طعام صحي يومي</li>
+<li>جلسة لعب قصيرة يومية</li>
+</ul>
+<button onclick="openModal('الغرفة القياسية')">احجز الآن</button>
+</div>
+
+<div class="room">
+<img src="https://mimg6cdn.haraj.com.sa/userfiles30/2023-02-13/900x701_88EE3CB4-0C7A-4ED0-A5C2-3CA012958540.jpg"غرف لعب >
+<h2>غرفة مع ملعب</h2>
+<div class="price">80$ / يوم</div>
+<ul>
+<li>كل مزايا الغرفة القياسية</li>
+<li>ساحة لعب خاصة لمدة ساعتين</li>
+<li>ألعاب تدريبية وتنشيطية</li>
+</ul>
+<button onclick="openModal('الغرفة مع الملعب')">احجز الآن</button>
+</div>
+
+<div class="room">
+<img src="https://tse1.mm.bing.net/th/id/OIP.cwoLdvSPF2YL3FS8aR6D-gHaEL?rs=1&pid=ImgDetMain&o=7&rm=3">
+<h2>جناح فاخر</h2>
+<div class="price">120$ / يوم</div>
+<ul>
+<li>كل مزايا الغرفة مع الملعب</li>
+<li>سرير فاخر وجناح خاص</li>
+<li>وجبات فاخرة</li>
+<li>جلسة تصوير يومية</li>
+<li>تحديثات يومية بالصور والفيديو</li>
+</ul>
+<button onclick="openModal('الغرف')">احجز الآن</button>
+</div>
+
+</section>
+
+<div class="modal" id="bookingModal">
+  <div class="modal-content">
+    <h3 id="modalTitle">حجز الغرفة</h3>
+    <p>يرجى الاتصال على 0123456789 أو البريد الإلكتروني info@lovinghomes.com لإكمال الحجز.</p>
+    <button onclick="closeModal()">إغلاق</button>
+  </div>
+</div>
+
+<footer>
+<p>للحجز أو الاستفسار: <br> الهاتف: 0123456789 | البريد الإلكتروني: info@lovinghomes.com</p>
+</footer>
+
+<script>
+function openModal(roomName) {
+    document.getElementById('modalTitle').innerText = 'حجز ' + roomName;
+    document.getElementById('bookingModal').style.display = 'flex';
+}
+function closeModal() {
+    document.getElementById('bookingModal').style.display = 'none';
+}
+</script>
+
+</body>
+</html>

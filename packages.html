@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>باقة الإقامة - LovingHomes</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fef9f5;
+    color: #333;
+}
+header {
+    background: linear-gradient(90deg, #ff9c3b, #ff6f3b);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+header h1 { margin: 0; font-size: 2.5em; }
+header p { margin-top: 10px; font-size: 1.2em; }
+.packages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+}
+.package {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 300px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s;
+    position: relative;
+}
+.package:hover { transform: translateY(-10px); }
+.package img { width: 100%; height: 180px; object-fit: cover; }
+.package h2 { color: #ff6f3b; margin: 20px 0 10px; }
+.price { font-size: 24px; font-weight: bold; color: #ff9c3b; margin-bottom: 15px; }
+.package ul { list-style: none; padding: 0 20px 20px 20px; text-align: right; }
+.package ul li { padding: 8px 0; position: relative; }
+.package ul li::before {
+    content: "✔";
+    color: #ff6f3b;
+    margin-left: 10px;
+}
+button {
+    background-color: #ff6f3b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+button:hover { background-color: #ff9c3b; }
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 30px;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center; align-items: center;
+}
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 400px;
+    text-align: center;
+}
+.modal-content h3 { margin-top: 0; color: #ff6f3b; }
+.modal-content button { margin-top: 20px; }
+@media (max-width: 960px) {
+    .packages { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>باقة الإقامة في LovingHomes </h1>
+<p>اختر الباقة المثالية لكلبك واستمتع برعاية وراحة لا مثيل لها</p>
+</header>
+
+<section class="packages">
+<div class="package">
+<h2>باقة الراحة المنزلية</h2>
+<div class="price">50$ / يوم</div>
+<ul>
+<li>مكان نوم مريح ودافئ</li>
+<li>طعام صحي يومي</li>
+<li>جلسة لعب يومية 30 دقيقة</li>
+<li>متابعة صحية أساسية</li>
+</ul>
+<button onclick="openModal('الراحة المنزلية')">احجز الآن</button>
+</div>
+
+<div class="package">
+<h2>باقة المرح واللعب</h2>
+<div class="price">80$ / يوم</div>
+<ul>
+<li>كل مزايا باقة الراحة المنزلية</li>
+<li>ساعتين لعب جماعية</li>
+<li>ألعاب تدريبية وتنشيطية</li>
+<li>جلسة تدليك خفيفة</li>
+</ul>
+<button onclick="openModal('المرح واللعب')">احجز الآن</button>
+</div>
+
+<div class="package">
+<h2>باقة الملكية الفاخرة</h2>
+<div class="price">120$ / يوم</div>
+<ul>
+<li>كل مزايا باقة المرح واللعب</li>
+<li>جناح خاص مع سرير فخم</li>
+<li>وجبات فاخرة وصحية</li>
+<li>جلسة تصوير يومية</li>
+<li>تحديثات يومية بالصور والفيديو</li>
+</ul>
+<button onclick="openModal('الملكية الفاخرة')">احجز الآن</button>
+</div>
+</section>
+<div class="modal" id="bookingModal">
+  <div class="modal-content">
+    <h3 id="modalTitle">حجز باقة</h3>
+    <p>يرجى الاتصال على 0123456789 أو البريد الإلكتروني info@lovinghomes.com لإكمال الحجز.</p>
+    <button onclick="closeModal()">إغلاق</button>
+  </div>
+</div>
+
+<footer>
+<p>للحجز أو الاستفسار: <br> الهاتف: 0123456789 | البريد الإلكتروني: info@lovinghomes.com</p>
+</footer>
+
+<script>
+function openModal(packageName) {
+    document.getElementById('modalTitle').innerText = 'حجز باقة ' + packageName;
+    document.getElementById('bookingModal').style.display = 'flex';
+}
+function closeModal() {
+    document.getElementById('bookingModal').style.display = 'none';
+}
+</script>
+
+</body>
+</html>

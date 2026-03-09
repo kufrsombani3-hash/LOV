@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حجز فندق LovingHomes للكلاب</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fef9f5;
+    color: #333;
+}
+header {
+    background: linear-gradient(90deg, #ff9c3b, #ff6f3b);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+header h1 { margin: 0; font-size: 2.5em; }
+header p { margin-top: 10px; font-size: 1.2em; }
+.booking-section {
+    max-width: 700px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.booking-section h2 {
+    color: #ff6f3b;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.booking-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.booking-section input, 
+.booking-section select,
+.booking-section textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+.booking-section textarea { resize: vertical; min-height: 100px; }
+.booking-section button {
+    background-color: #ff6f3b;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+}
+.booking-section button:hover { background-color: #ff9c3b; }
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 30px;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>حجز فندق LovingHomes </h1>
+<p>املأ النموذج أدناه لحجز الغرفة أو الباقة المفضلة لكلبك</p>
+</header>
+
+<section class="booking-section">
+<h2>نموذج الحجز</h2>
+<form id="bookingForm" onsubmit="submitBooking(event)">
+    <label>اختر الغرفة / الباقة:</label>
+    <select name="package" required>
+        <option value="">-- اختر --</option>
+        <option value="غرفة قياسية">غرفة قياسية - 50$/يوم</option>
+        <option value="غرفة مع ملعب">غرفة مع ملعب - 80$/يوم</option>
+        <option value="جناح فاخر">جناح فاخر - 120$/يوم</option>
+        <option value="باقة الراحة المنزلية">باقة الراحة المنزلية - 50$/يوم</option>
+        <option value="باقة المرح واللعب">باقة المرح واللعب - 80$/يوم</option>
+        <option value="باقة الملكية الفاخرة">باقة الملكية الفاخرة - 120$/يوم</option>
+    </select>
+
+    <input type="text" name="name" placeholder="الاسم الكامل" required>
+    <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+    <input type="tel" name="phone" placeholder="رقم الهاتف" required>
+    <label>تاريخ الوصول:</label>
+    <input type="date" name="checkin" required>
+    <label>تاريخ المغادرة:</label>
+    <input type="date" name="checkout" required>
+    <textarea name="notes" placeholder="ملاحظات إضافية"></textarea>
+    <button type="submit">تأكيد الحجز</button>
+</form>
+</section>
+
+<footer>
+<p>للاستفسار: الهاتف: 0123456789 | البريد الإلكتروني: info@lovinghomes.com</p>
+</footer>
+
+<script>
+function submitBooking(event) {
+    event.preventDefault();
+    const form = document.getElementById('bookingForm');
+    const packageName = form.package.value;
+    alert("تم إرسال الحجز بنجاح!\nلقد اخترت: " + packageName + "\nسوف نتواصل معك قريباً لتأكيد الحجز.");
+    form.reset();
+}
+</script>
+
+</body>
+</html>

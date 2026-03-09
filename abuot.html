@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اتصل بنا - LovingHomes</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fef9f5;
+    color: #333;
+}
+header {
+    background: linear-gradient(90deg, #ff9c3b, #ff6f3b);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+header h1 { margin: 0; font-size: 2.5em; }
+header p { margin-top: 10px; font-size: 1.2em; }
+.contact-section {
+    max-width: 700px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.contact-section h2 {
+    color: #ff6f3b;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.contact-section input, 
+.contact-section textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+.contact-section textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+.contact-section button {
+    background-color: #ff6f3b;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+}
+.contact-section button:hover { background-color: #ff9c3b; }
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 30px;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>اتصل بنا - LovingHomes </h1>
+<p>نحن هنا للإجابة على جميع استفساراتك وحجوزاتك</p>
+</header>
+
+<section class="contact-section">
+<h2>ارسل لنا رسالة</h2>
+<form id="contactForm" onsubmit="submitForm(event)">
+    <input type="text" name="name" placeholder="الاسم الكامل" required>
+    <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+    <input type="tel" name="phone" placeholder="رقم الهاتف" required>
+    <textarea name="message" placeholder="اكتب رسالتك هنا" required></textarea>
+    <button type="submit">إرسال الرسالة</button>
+</form>
+</section>
+
+<footer>
+<p>العنوان: شارع الكلاب السعيد، المدينة، البلد <br>
+الهاتف: 0123456789 | البريد الإلكتروني: info@lovinghomes.com</p>
+</footer>
+
+<script>
+function submitForm(event) {
+    event.preventDefault();
+    alert("شكراً لتواصلك معنا! سنرد عليك قريباً.");
+    document.getElementById('contactForm').reset();
+}
+</script>
+
+</body>
+</html>
